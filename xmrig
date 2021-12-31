@@ -1,0 +1,10 @@
+#!/bin/sh
+
+a=0
+
+while [ $a -lt 900 ]
+do
+    echo "[INFO] xmrig dummy logging count=$a"
+    a=`expr $a + 1`
+    sleep 1
+done

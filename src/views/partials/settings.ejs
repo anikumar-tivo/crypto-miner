@@ -1,0 +1,88 @@
+<div id="miner-settings">
+    <form method="POST" action="/apply-settings">
+        <div class="row px-5 mb-3" id="miner-settings">
+            <div class="lead col-sm-12">
+                <p style="font-weight: 400;">Pool &amp; Crypto Currency settings</p>
+            </div>
+            <div class="col-sm-4">
+                <label class="lead" for="mining-pool">Select mining pool</label>
+                <div class="input-group input-group-lg mb-3">
+                    <select class="form-control" id="mining-pool" name="mining-pool">
+                        <option value="rx.unmineable.com:3333" selected>unMineable</option>
+                        <option value="rx-asia.unmineable.com:3333">unMineable (Asia)</option>
+                        <option value="rx-eu.unmineable.com:3333">unMineable.com (EU)</option>
+                        <option value="rx-us.unmineable.com:3333">unMineable.com (US)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label class="lead" for="crypto-currency">Select crypto currency to mining</label>
+                <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><img src="/images/icons/BTC.webp" id="crypto-currency-icon" style="height: 24px;"/></span>
+                    </div>
+                    <select class="form-control" id="crypto-currency" name="crypto-currency">
+                        <option value="BTC" selected>Bitcoin (BTC)</option>
+                        <option value="DOGE">Dogecoin (DOGE)</option>
+                        <option value="ELON">Dogelon Mars (ELON)</option>
+                        <option value="SHIB">SHIBA INU (SHIB)</option>
+                        <option value="SOL">Solana (SOL)</option>
+                        <option value="XMR">Monero (XMR)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label class="lead" for="wallet-address">Enter your wallet address</label>
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control" placeholder="Address" id="wallet-address" name="wallet-address"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <label class="lead" for="worker-name">Enter your worker name</label>
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control" placeholder="Ex. window, homepc, pi, etc." id="worker-name" name="worker-name"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-5 mb-3" id="miner-settings">
+            <div class="lead col-sm-12">
+                <p style="font-weight: 400;">CPU settings</p>
+            </div>
+            <div class=" row col-sm-4">
+                <div class="col-sm-12">
+                    <label class="lead" for="crypto-currency">Select core(s) for mining</label>
+                </div>
+                <% const cols = Math.floor(cpus / 4) + 1 %>
+                <% let cpu = 0 %>
+                <% for (let col = 0; col < cols; col++) { %>
+                <div class="col-sm-6">
+                    <% let count = 0 %>
+                    <% for (let i = cpu; i < cpus && count < 4; i++, count++) { %>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" name="cpus" value="<%= cpu %>" id="cpu<%= cpu %>"/>
+                        <label class="custom-control-label" for="cpu<%= cpu %>">Core <%= cpu %></label>
+                    </div>
+                    <% cpu++ %>
+                    <% } %>
+                </div>
+                <% } %> 
+            </div>
+            <div class="col-sm-6">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="donate" name="donate" checked/>
+                    <label class="custom-control-label" for="donate">I agree to donate 1% (1 minute in 100 minutes)</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row px-5 pb-5">
+            <div class="col-sm-12 text-right">
+                <button type="reset" class="btn btn-primary" style="width: 120px;" id="btn-cancel">Cancel</button>
+                <button class="btn btn-primary" disabled style="width: 120px;" id="btn-apply">Apply</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom px-5 lead">
+    <a class="navbar-brand" href="javascript:void(0)"><img src="/images/logo-full.png" height="24px"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-2 <%= dashboardTab? 'active': '' %>" id="dashboard">
+                <a class="nav-link" href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+            </li>
+
+            <li class="nav-item mr-2 <%= settingsTab? 'active': '' %>" id="settings">
+                <a class="nav-link" href="/settings"><i class="fa fa-cog"></i> Settings</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-info disabled" href="javascript:void(0)">&copy; 2022</a>
+            </li>
+        </ul>
+    </div>
+</nav>

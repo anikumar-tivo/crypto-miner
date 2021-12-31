@@ -1,0 +1,76 @@
+<div id="miner-dashboard">
+    <% const state = locals.state || {} %>
+    <% const config = state.configurations || {} %>
+    <% const crypto = locals.crypto || {} %>
+    <% if (state.isfirst) { %>
+    <div class="container-fluid px-5 mb-5"><br>
+        <p class="lead text-secondary text-center">You have not configured the miner.<br>
+        <a href="/settings">Click</a> here to configure now.</p>
+    </div>
+    <% } else { %>
+    <input type="hidden" value="<%= config.coin %>" id="hidden-coin" />
+    <input type="hidden" value="<%= config.wallet %>" id="hidden-wallet-address" />
+    <div class="row px-5" id="minner-info">
+        <div class="col-sm-6 lead text-primary" style="font-weight: 400;">
+            <div class="row mb-3">
+                <p class="col-sm-12 mb-0">- Configurations</p>
+                <div class="col-sm-4 text-secondary">
+                    <div>* pool</div>
+                    <div>* wallet address</div>
+                    <div>* coin</div>
+                    <div>* mined coins</div>
+                    <div>* worker name</div>
+                    <div>* donate</div>
+                </div>
+                <div class="col-sm-8">
+                    <div id="pool"><%= config.pool %></div>
+                    <div id="wallet-address" style="overflow: hidden; word-wrap: break-word;"><%= config.wallet %></div>
+                    <div id="crypto-currency"><img src="<%= crypto.icon %>" id="crypto-currency-icon" class="m-0 p-0" style="height: 20px;"/> <%= crypto.name %> (<%= config.coin %>)</span></div>
+                    <div id="mined-coins">...</div>
+                    <div id="worker-name"><%= config.worker %></div>
+                    <div id="donate"><%= config.donate %></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <p class="col-sm-12 mb-0">- Results</p>
+                <div class="col-sm-4 text-secondary">
+                    <div>* accepted</div>
+                    <div>* pool-side hashes</div>
+                    <div>* difficulty</div>
+                    <div>* avg result time</div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="text-success" id="accepted">...</div>
+                    <div class="text-primary" id="pool-side-hashes">...</div>
+                    <div class="text-primary" id="difficulty">...</div>
+                    <div class="text-success" id="avg-result-time">...</div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-sm-12 mb-0">- Hash Rate</p>
+                <div class="col-sm-4 text-secondary">
+                    <div>* 10s H/s</div>
+                    <div>* 60s H/s</div>
+                    <div>* 15m H/s</div>
+                    <div>* max H/s</div>
+                </div>
+                <div class="col-sm-8 text-success">
+                    <div id="hashrate10shs">...</div>
+                    <div id="hashrate60shs">...</div>
+                    <div id="hashrate15mhs">...</div>
+                    <div class="text-primary" id="hashratemaxhs">...</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p class="col-sm-12 mb-1 lead text-primary" style="font-weight: 400;">- Logs</p>
+            <div class="col-sm-12 bg-dark text-white border rounded p-3" style="height: 33vh;">
+                <div id="log-preview" style="height:100%; overflow: scroll;">
+                    <p class="lead text-center pt-5" id="waiting-logs">Waiting for logs...</p>
+                    <div id="log-lines" style="font-size: 11px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>

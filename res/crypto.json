@@ -1,0 +1,26 @@
+{
+    "BTC": {
+        "name": "Bitcoin",
+        "icon": "/images/icons/BTC.webp"
+    },
+    "DOGE": {
+        "name": "Dogecoin",
+        "icon": "/images/icons/DOGE.webp"
+    },
+    "ELON": {
+        "name": "Dogelon Mars",
+        "icon": "/images/icons/ELON.png"
+    },
+    "SHIB": {
+        "name": "SHIBA INU",
+        "icon": "/images/icons/SHIB.webp"
+    },
+    "SOL": {
+        "name": "Solana",
+        "icon": "/images/icons/SOL.webp"
+    },
+    "XMR": {
+        "name": "Monero",
+        "icon": "/images/icons/XMR.webp"
+    }
+}
